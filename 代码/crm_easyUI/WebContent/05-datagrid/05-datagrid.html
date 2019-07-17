@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 引入EasyUI的CSS和JS -->
+<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#dg').datagrid({    
+		    url:'datagrid_data1.json',    
+		    columns:[[    
+		        {field:'productid',title:'商品编号',width:100},    
+		        {field:'productname',title:'商品名称',width:100},    
+		        {field:'unitcost',title:'商品单价',width:100,align:'left'} ,   
+		        {field:'status',title:'商品状态',width:100,align:'right'} ,   
+		        {field:'attr1',title:'商品属性',width:100,align:'right'} ,  
+		        {field:'xxxxx',title:'操作',width:100,align:'left',formatter: function(value,row,index){
+					return "<a href=''>修改</a> | <a href=''>删除</a>";
+					}
+				} 
+		    ]],
+		    striped:true,
+		    // 显示分页工具栏
+		    pagination:true,
+		    pageList:[3,5,10]
+		});  
+	});
+</script>
+</head>
+<body>
+	<table id="dg"></table>  
+</body>
+</html>

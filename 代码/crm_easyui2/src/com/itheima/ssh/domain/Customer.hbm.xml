@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 建立映射关系:将类与表建立映射关系 -->
+	<!-- 
+		class标签：用于建立类与表的映射
+			* name	:类的全路径
+			* table	:数据库表名称
+	 -->
+	<class name="com.itheima.ssh.domain.Customer" table="cst_customer">
+		<!-- 建立类中的属性与表中的字段的映射 -->
+		<!-- 
+			id标签：用来建立表中的主键字段与类中的属性的映射
+		 -->
+		<id name="cust_id" column="cust_id">
+			<!-- 主键生成策略： -->
+			<generator class="native"/>
+		</id>
+		<!-- 其他的属性都是用property建立映射 -->
+		<property name="cust_name" column="cust_name"/>
+		<property name="cust_source" column="cust_source"/>
+		<property name="cust_industry" column="cust_industry"/>
+		<property name="cust_level" column="cust_level"/>
+		<property name="cust_phone" column="cust_phone"/>
+		<property name="cust_mobile" column="cust_mobile"/>
+		
+	</class>
+	
+	<query name="queryAll">from Customer</query>
+</hibernate-mapping>

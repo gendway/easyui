@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 引入EasyUI的CSS和JS -->
+<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+			// 判断选项卡是否存在:
+			var flag = $("#tt").tabs("exists","客户管理");
+			if(flag){
+				// 已经存在该选项卡
+				$('#tt').tabs("select","客户管理");
+			}else{
+				// 不存在该选项卡
+				$('#tt').tabs('add',{    
+				    title:'客户管理',    
+				    content:'客户管理数据',    
+				    closable:true    
+				}); 
+			}
+		});
+	});
+</script>
+</head>
+<body>
+<a href="#" id="btn" class="easyui-linkbutton">按钮</a>
+<div id="tt" class="easyui-tabs" style="width:500px;height:250px;">   
+    <div title="数据区域" data-options="closable:true" style="padding:20px;display:none;">   
+        	数据区域 
+    </div>   
+</div>  
+</body>
+</html>
